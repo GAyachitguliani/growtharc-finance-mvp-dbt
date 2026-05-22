@@ -1,7 +1,6 @@
 # GrowthArc Finance MVP — dbt on Snowflake
 
-**Repository:** `growtharc-finance-mvp-dbt`  
-**Organization:** GrowthArc  
+**Repository:** [github.com/GAyachitguliani/growtharc-finance-mvp-dbt](https://github.com/GAyachitguliani/growtharc-finance-mvp-dbt)  
 **Stack:** dbt Cloud · Snowflake · GitHub · Cursor (remote dbt MCP)
 
 Medallion analytics project for the Finance MVP capstone: dimensions and facts in `CAPSTONE_PROJECT.FINANCE_MVP`, transformed through dbt (silver/gold) with Semantic Layer metrics for governed reporting and AI assistants.
@@ -45,7 +44,7 @@ Snowflake (bronze) → dbt staging (silver) → dbt marts (gold) → Semantic La
 
 ## dbt Cloud setup
 
-1. **GitHub** → connect repository `growtharc-finance-mvp-dbt`.
+1. **GitHub** → connect repository [GAyachitguliani/growtharc-finance-mvp-dbt](https://github.com/GAyachitguliani/growtharc-finance-mvp-dbt).
 2. **Connection** → Snowflake: account, role, warehouse, database `CAPSTONE_PROJECT`.
 3. **Development environment** → default/custom schema: `FINANCE_MVP_DBT` (recommended — do not overwrite bronze tables).
 4. Run: `dbt deps` then `dbt build`.
