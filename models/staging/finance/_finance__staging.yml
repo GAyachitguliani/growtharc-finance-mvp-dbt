@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_dim_date
+    description: "Silver — calendar dimension from FINANCE_MVP."
+  - name: stg_dim_client
+    description: "Silver — client dimension."
+  - name: stg_dim_project
+    description: "Silver — project dimension."
+  - name: stg_dim_employee
+    description: "Silver — employee dimension."
+  - name: stg_dim_department
+    description: "Silver — department dimension."
+  - name: stg_dim_vendor
+    description: "Silver — vendor dimension."
+  - name: stg_dim_expense_category
+    description: "Silver — expense category dimension."
+  - name: stg_dim_location
+    description: "Silver — location dimension."
+  - name: stg_fact_revenue
+    description: "Silver — revenue facts."
+  - name: stg_fact_expense
+    description: "Silver — expense facts."
+  - name: stg_fact_payroll
+    description: "Silver — payroll facts."
+  - name: stg_fact_project_cost
+    description: "Silver — project cost facts."
+  - name: stg_fact_vendor_payment
+    description: "Silver — vendor payment facts."

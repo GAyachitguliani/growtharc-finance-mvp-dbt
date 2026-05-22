@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "Gold — conformed date dimension."
+    columns:
+      - name: date_id
+        tests: [unique, not_null]
+  - name: dim_client
+    description: "Gold — client dimension."
+    columns:
+      - name: client_id
+        tests: [unique, not_null]
+  - name: fct_revenue
+    description: "Gold — revenue facts with client, project, and date attributes."
+    columns:
+      - name: revenue_id
+        tests: [unique, not_null]
+      - name: net_revenue
+        tests: [not_null]
+  - name: fct_expense
+    description: "Gold — expense facts with department, vendor, category, location."
+    columns:
+      - name: expense_id
+        tests: [unique, not_null]
+  - name: fct_payroll
+    description: "Gold — payroll facts with employee and department."
+    columns:
+      - name: payroll_id
+        tests: [unique, not_null]
+  - name: fct_project_cost
+    description: "Gold — project costs with project and client context."
+    columns:
+      - name: project_cost_id
+        tests: [unique, not_null]
+  - name: fct_vendor_payment
+    description: "Gold — vendor payments with vendor and date."
+    columns:
+      - name: payment_id
+        tests: [unique, not_null]

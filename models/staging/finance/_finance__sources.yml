@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: finance_mvp
+    description: "Bronze layer — existing Finance MVP tables in Snowflake (loaded outside dbt)."
+    database: "{{ var('source_database') }}"
+    schema: "{{ var('source_schema') }}"
+    tables:
+      - name: dim_date
+        identifier: DIM_DATE
+      - name: dim_client
+        identifier: DIM_CLIENT
+      - name: dim_project
+        identifier: DIM_PROJECT
+      - name: dim_employee
+        identifier: DIM_EMPLOYEE
+      - name: dim_department
+        identifier: DIM_DEPARTMENT
+      - name: dim_vendor
+        identifier: DIM_VENDOR
+      - name: dim_expense_category
+        identifier: DIM_EXPENSE_CATEGORY
+      - name: dim_location
+        identifier: DIM_LOCATION
+      - name: fact_revenue
+        identifier: FACT_REVENUE
+      - name: fact_expense
+        identifier: FACT_EXPENSE
+      - name: fact_payroll
+        identifier: FACT_PAYROLL
+      - name: fact_project_cost
+        identifier: FACT_PROJECT_COST
+      - name: fact_vendor_payment
+        identifier: FACT_VENDOR_PAYMENT

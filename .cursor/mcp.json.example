@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "dbt": {
+      "url": "https://YOUR_DBT_HOST.dbt.com/api/ai/v1/mcp/",
+      "headers": {
+        "Authorization": "Token YOUR_DBT_PAT",
+        "x-dbt-prod-environment-id": "YOUR_PROD_ENV_ID",
+        "x-dbt-user-id": "YOUR_USER_ID",
+        "x-dbt-dev-environment-id": "YOUR_DEV_ENV_ID"
+      }
+    }
+  }
+}

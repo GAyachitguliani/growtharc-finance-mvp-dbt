@@ -1,0 +1,96 @@
+version: 2
+
+semantic_models:
+  - name: revenue_semantic
+    description: "Semantic model for revenue analysis."
+    model: ref('fct_revenue')
+    defaults:
+      agg_time_dimension: full_date
+    entities:
+      - name: revenue
+        type: primary
+        expr: revenue_id
+      - name: client
+        type: foreign
+        expr: client_id
+    dimensions:
+      - name: full_date
+        type: time
+        type_params:
+          time_granularity: day
+        expr: full_date
+      - name: client_name
+        type: categorical
+        expr: client_name
+      - name: client_segment
+        type: categorical
+        expr: client_segment
+      - name: revenue_type
+        type: categorical
+        expr: revenue_type
+      - name: payment_status
+        type: categorical
+        expr: payment_status
+    measures:
+      - name: gross_revenue
+        agg: sum
+        expr: gross_revenue
+      - name: net_revenue
+        agg: sum
+        expr: net_revenue
+      - name: revenue_count
+        agg: count
+        expr: revenue_id
+
+  - name: expense_semantic
+    description: "Semantic model for expense analysis."
+    model: ref('fct_expense')
+    defaults:
+      agg_time_dimension: full_date
+    entities:
+      - name: expense
+        type: primary
+        expr: expense_id
+    dimensions:
+      - name: full_date
+        type: time
+        type_params:
+          time_granularity: day
+        expr: full_date
+      - name: department_name
+        type: categorical
+        expr: department_name
+      - name: expense_type
+        type: categorical
+        expr: expense_type
+      - name: approval_status
+        type: categorical
+        expr: approval_status
+    measures:
+      - name: total_expense
+        agg: sum
+        expr: expense_amount
+      - name: expense_count
+        agg: count
+        expr: expense_id
+
+metrics:
+  - name: total_net_revenue
+    label: "Total Net Revenue"
+    description: "Sum of net revenue across all revenue records."
+    type: simple
+    type_params:
+      measure: net_revenue
+    config:
+      meta:
+        domain: finance
+
+  - name: total_expense_amount
+    label: "Total Expenses"
+    description: "Sum of expense amounts."
+    type: simple
+    type_params:
+      measure: total_expense
+    config:
+      meta:
+        domain: finance

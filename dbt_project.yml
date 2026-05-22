@@ -1,0 +1,35 @@
+name: "capstone_finance"
+version: "1.0.0"
+config-version: 2
+
+# Match profile name in dbt Cloud project settings (or ~/.dbt/profiles.yml locally).
+profile: "capstone_finance"
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+  source_database: "CAPSTONE_PROJECT"
+  source_schema: "FINANCE_MVP"
+
+# Medallion: bronze = sources (existing Snowflake tables)
+#           silver = staging | gold = marts + semantic layer
+models:
+  capstone_finance:
+    staging:
+      finance:
+        +materialized: view
+        +tags: ["silver", "finance"]
+    marts:
+      finance:
+        +materialized: table
+        +tags: ["gold", "finance"]

@@ -1,0 +1,14 @@
+# Local dbt only. dbt Cloud stores Snowflake credentials in the UI.
+capstone_finance:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      database: CAPSTONE_PROJECT
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      schema: FINANCE_MVP_DBT
+      threads: 4
